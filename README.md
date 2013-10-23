@@ -1,0 +1,1 @@
+# ember-modal-mask
