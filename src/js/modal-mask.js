@@ -33,14 +33,11 @@ module.exports = Em.Component.extend({
     
     blurBelowLayer: function(blurred) {
         var zIndex = this.get('zIndex');
-        var belowLayer = this.$().siblings('.application, .layer')
+        var belowLayers = this.$().siblings('.application, .layer')
             .filter(function(index, s) {
                 var sz = $(s).css('z-index');
                 return (sz === 'auto' || sz < zIndex);
-            })
-            .sort(function(a, b) {
-                return $(b).css('z-index') - $(a).css('z-index');
-            })[0];
-        $(belowLayer)[blurred ? 'addClass' : 'removeClass']('modal-mask-blur');
+            });
+        belowLayers[blurred ? 'addClass' : 'removeClass']('modal-mask-blur');
     }
 });
