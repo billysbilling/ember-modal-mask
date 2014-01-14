@@ -13,14 +13,13 @@
         @include background(radial-gradient(rgba($blue-gray-dark, 0.3), rgba($blue-gray-dark, 0.725)));
         @include transition(opacity 0.25s linear);
         @include opacity(0);
-        
+
         &.visible {
             @include opacity(1);
         }
     }
-    
+
     .modal-mask-blur {
         @include transform(translateZ(0));
-        @include filter(blur(2px));
     }
 }
