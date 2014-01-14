@@ -1,6 +1,6 @@
 {
   "name": "ember-modal-mask",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/billysbilling/ember-modal-mask",
   "main": "src/js/modal-mask.js",
   "license": "MIT",
