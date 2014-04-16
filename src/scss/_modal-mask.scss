@@ -11,11 +11,14 @@
         background: black;
         @include transform(translate3d(0, 0, 0));
         @include background(radial-gradient(rgba($blue-gray-dark, 0.3), rgba($blue-gray-dark, 0.725)));
-        @include transition(opacity 0.25s linear);
-        @include opacity(0);
+        opacity: 0;
+
+        &.modal-mask-animated {
+            @include transition(opacity 0.25s linear);
+        }
 
         &.visible {
-            @include opacity(1);
+            opacity: 1;
         }
     }
 

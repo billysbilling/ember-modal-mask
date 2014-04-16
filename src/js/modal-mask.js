@@ -1,10 +1,20 @@
+var ANIMATION_DURATION = 250;
+
 module.exports = Em.Component.extend({
     classNames: ['modal-mask'],
-    
+
+    classNameBindings: ['animated:modal-mask-animated'],
+
     attributeBindings: ['style'],
 
+    animated: true,
+
+    animationDuration: function() {
+        return this.get('animated') ? ANIMATION_DURATION : 0;
+    }.property('animated'),
+
     zIndex: 1000,
-    
+
     style: function() {
         return 'z-index:'+this.get('zIndex')+';';
     }.property('zIndex'),
@@ -24,16 +34,16 @@ module.exports = Em.Component.extend({
             self.blurBelowLayer(true);
         });
     },
-    
+
     animateDestroy: function() {
         var el = this.$();
         el.removeClass('visible');
         this.blurBelowLayer(false);
         Em.run.later(this, function() {
             this.destroy();
-        }, 300);
+        }, this.get('animationDuration'));
     },
-    
+
     blurBelowLayer: function(blurred) {
         var zIndex = this.get('zIndex');
         var belowLayers = this.$().siblings('.application, .layer')
