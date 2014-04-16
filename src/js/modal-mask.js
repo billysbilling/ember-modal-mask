@@ -16,10 +16,13 @@ module.exports = Em.Component.extend({
     didInsertElement: function() {
         var self = this,
             el = this.$();
-        setTimeout(function() {
+        Em.run.next(function() {
+            if (self.get('isDestroying')) {
+                return;
+            }
             el.addClass('visible');
             self.blurBelowLayer(true);
-        }, 0);
+        });
     },
     
     animateDestroy: function() {
