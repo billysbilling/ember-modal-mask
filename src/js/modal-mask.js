@@ -15,6 +15,8 @@ module.exports = Em.Component.extend({
 
     isAnimateDestroying: false,
 
+    insertTime: null,
+
     zIndex: 1000,
 
     style: function() {
@@ -28,6 +30,7 @@ module.exports = Em.Component.extend({
     didInsertElement: function() {
         var self = this,
             el = this.$();
+        this.set('insertTime', Date.now());
         Em.run.next(function() {
             if (self.get('isDestroying')) {
                 return;
