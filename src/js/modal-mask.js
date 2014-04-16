@@ -13,6 +13,8 @@ module.exports = Em.Component.extend({
         return this.get('animated') ? ANIMATION_DURATION : 0;
     }.property('animated'),
 
+    isAnimateDestroying: false,
+
     zIndex: 1000,
 
     style: function() {
@@ -39,6 +41,7 @@ module.exports = Em.Component.extend({
         var el = this.$();
         el.removeClass('visible');
         this.blurBelowLayer(false);
+        this.set('isAnimateDestroying', true);
         Em.run.later(this, function() {
             this.destroy();
         }, this.get('animationDuration'));
