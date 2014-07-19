@@ -10,7 +10,7 @@
         height: 100%;
         background: black;
         @include transform(translate3d(0, 0, 0));
-        @include background(radial-gradient(rgba($blue-gray-dark, 0.3), rgba($blue-gray-dark, 0.725)));
+        @include background(radial-gradient(rgba($blue-gray-xdark, 0.3), rgba($blue-gray-xdark, 0.725)));
         opacity: 0;
 
         &.modal-mask-animated {
